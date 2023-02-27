@@ -1,4 +1,3 @@
-//Sadeel Muwahed 20200232
 
 #include <iostream>
 #include <cstdlib>
