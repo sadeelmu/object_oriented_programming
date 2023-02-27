@@ -1,6 +1,4 @@
-//Sadeel Muwahed 20200232 Lab 4 Section 8
 
-//header.h
 
 #ifndef CITY_H
 #define CITY_H
