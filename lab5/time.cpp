@@ -1,57 +1,43 @@
-#include "time.h"
-#include <string>
+#ifndef T_H
+#define T_H
+
 #include <iostream>
 using namespace std;
 
-Time::Time(unsigned int hours = 0, unsigned int minutes = 0, unsigned int seconds = 0)
+class Time
 {
-    if (hours > 23)
-    {
-        hours = 23;
-    }
-    if (minutes > 59)
-    {
-        minutes = 59;
-    }
-    if (seconds > 59)
-    {
-        seconds = 59;
-    }
-}
-unsigned int Time::getHours()
-{
-    return hours_;
-}
-unsigned int Time::getMinutes()
-{
-    return minutes_;
-}
-unsigned int Time::getSeconds()
-{
-    return seconds_;
-}
+    unsigned int hour;
+    unsigned int minute;
+    unsigned int second;
 
-void Time::print()
-{
-    cout << hours_;
-    cout << ":";
-    if (minutes_ > 10)
+public:
+    Time(unsigned h = 0, unsigned m = 0, unsigned s = 0) : hour(h), minute(m), second(s)
     {
-        cout << minutes_;
+        if (hour > 23)
+            hour = 23;
+        if (minute > 59)
+            minute = 59;
+        if (second > 59)
+            second = 59;
     }
-    else
+
+    unsigned int get_hour() const { return hour; }
+    unsigned int get_minute() const { return minute; }
+    unsigned int get_second() const { return second; }
+
+    void print() const
     {
-        cout << 0;
-        cout << minutes_;
+        if (hour < 10)
+            cout << "0";
+        cout << hour << ":";
+
+        if (minute < 10)
+            cout << "0";
+        cout << minute << ":";
+
+        if (second < 10)
+            cout << "0";
+        cout << second;
     }
-    cout << ":";
-    if (seconds_ > 10)
-    {
-        cout << seconds_;
-    }
-    else
-    {
-        cout << 0;
-        cout << minutes_;
-    }
-}
+};
+#endif
